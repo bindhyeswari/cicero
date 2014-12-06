@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #results {
+            margin: 16px;
+        }
+    </style>
+    <link rel="stylesheet" href="../base.css"/>
+    <script>
+
+
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="string 1" id="string1"/>
+    <input type="text" placeholder="string 2" id="string2"/>
+
+    <div id="results">
+        No, both strings are not anagrams.
+    </div>
+
+    <script>
+        console.log('Hello World!');
+
+        function add(x, y) {
+            return x + y;
+        }
+
+        var c = add(10, 20);
+
+        var obj = {
+            name: 'Naga',
+            sayHello: function () {
+                console.log('Hello from Naga ... ');
+            }
+        };
+
+        var data = {
+            id: 100,
+            sayHello: function () {
+                console.log('Hello from Naga ... ');
+            }
+        };
+
+        var asdf = {
+            sayHello: function () {}
+        };
+
+        function invoker(interface_impl) {
+            interface_impl.sayHello();
+        }
+
+        invoker(data);
+
+
+
+        obj.sayHello();
+
+        var first = document.getElementById('string1');
+        var second = document.getElementById('string2');
+        var results = document.getElementById('results');
+
+        function inputHandler() {
+            if (checkAnagram(first.value, second.value)) {
+                results.innerHTML = 'These strings are anagrams';
+            } else {
+                results.innerHTML = 'No, both strings are not anagrams.';
+            }
+        }
+
+        first.addEventListener('input', inputHandler);
+        second.addEventListener('input', inputHandler);
+
+        function checkAnagram(f, s) {
+            // inputs - two strings | boolean
+            return hash(f) === hash(s);
+        }
+
+        function hash(s) {
+            // string | number
+            var sum = 0;
+            for (var i = 0, len = s.length; i < len; i++) {
+                console.log(s[i], s.charCodeAt(i));
+                sum += s.charCodeAt(i);
+            }
+            console.log(sum);
+            return sum;
+        }
+
+        // console.log(checkAnagram('anu', 'aun'));
+
+
+    </script>
+</body>
+</html>
